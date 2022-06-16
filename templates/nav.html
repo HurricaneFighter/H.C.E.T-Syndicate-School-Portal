@@ -1,0 +1,185 @@
+{% load static %}
+<!-- Preloader -->
+<!-- Preloader -->
+
+<style>
+    .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20%);
+        transition: all .5s;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0%);
+    }
+    
+    @media only screen and (max-width: 800px) {
+        .nav-thing {
+            display: none;
+        }
+    }
+</style>
+<div id="preloader">
+    <div class="preload-content">
+        <div id="dento-load"></div>
+    </div>
+</div>
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Top Header Area -->
+    <div class="top-header-area bg-dark" style="background-color: #131313!important">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <!-- Top Content -->
+                <div class="col-6 col-md-9 col-lg-8">
+                    <div class="top-header-content">
+                        <a href="/" data-toggle="tooltip" data-placement="bottom" title="H.C.E.T Syndicate School, Gurgaon, Haryana"><i
+                                class="fa fa-map-marker"></i> <span class="text-white">H.C.E.T Syndicate School, Gurgaon, Haryana</span></a>
+                        <a href="mailto:hurricanefighter252@gmail.com" data-toggle="tooltip" data-placement="bottom" title="hurricanefighter252@gmail.com"><i
+                                class="fa fa-envelope"></i> <span class="text-white">hurricanefighter252@gmail.com</span></a>
+                    </div>
+                </div>
+                <!-- Top Header Social Info -->
+                <div class="col-6 col-md-3 col-lg-4">
+                    <div class="top-header-social-info text-right">
+                        <a href="/" data-toggle="tooltip" data-placement="bottom" title="Made by Hvrxicqne."><i
+                            class="fa fa-arrow-right"></i> <span style="padding-left: 5px;" class="text-white">By - Hvrxicqne</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Header End -->
+
+    <!-- Main Header Start -->
+    <nav style="margin-bottom: 0px;" class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top" id="dentoNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+
+                <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.328 100" fill="inherit" width="69.328" height="100">
+                    <g>
+                        <path d="M56.072,26.527c0-0.795-0.625-1.628-1.389-1.85L13.319,12.686c-0.765-0.221-0.872-0.797-0.239-1.279l3.665-2.79   c0.633-0.481,1.777-0.694,2.54-0.472l41.29,11.991c0.764,0.222,1.389,1.055,1.389,1.85V86.99c0,0-0.492,0.427-1.092,0.95   l-3.707,3.219c-0.6,0.523-1.092,0.299-1.092-0.497V26.527z"></path><path d="M67.969,14.562L17.283-0.147c-0.568-0.158-0.568-0.158-0.568-0.158c-0.592,0.257-1.593,0.861-2.226,1.343L0.66,11.565   C0,12.062,0,12.197,0,12.197c0,0.795,0,2.098,0,2.894v68.306c0,0.796,0.626,1.628,1.391,1.85L51.066,99.64   c0.764,0.222,1.391-0.248,1.391-1.044V29.244c0-0.796-0.627-1.628-1.391-1.849l-3.237-0.938v23.475l-7.397-10.563l-6.217,6.347   V22.509l-28.802-8.35c-0.764-0.221-0.871-0.796-0.238-1.278l10.829-8.244c0.633-0.482,1.777-0.694,2.54-0.473L64.191,17.42   c0.764,0.222,1.389,1.055,1.389,1.85v69.37c0,0.795,0.65,1.446,1.447,1.446h0.854c0.797,0,1.447-0.651,1.447-1.446V16.393   C69.328,15.541,68.771,14.796,67.969,14.562z"></path>
+                        <polygon points="37.109,38.58 40.801,34.809 44.937,40.712 44.937,25.467 37.109,23.195  ">
+                        </polygon>
+                    </g>
+                </svg>
+                <span style="padding-left: 10px;" class="ml-3 font-weight-bold">H.C.E.T Portal</apan>
+                    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+                    <span class="navbar-toggler-icon" style="width: 11.7em;"></span>
+                </button>
+
+
+
+                <div class="collapse navbar-collapse" id="navbar4" style="padding-left: 50px">
+                    <ul class="navbar-nav mr-auto pl-lg-4-right">
+
+
+                        {% if request.user.is_authenticated and request.user.role == 'instructor' %}
+
+                        <li class="nav-item px-lg-2 active">
+                            <a class="nav-link" href="/" style="color: #000; font-weight: 600; font-weight: 600;"> <span class="d-inline-block d-lg-none icon-width"></span>Home</a>
+                        </li>
+                        <li>
+                            <li class="nav-item px-lg-2 dropdown d-menu">
+                                <a style="color: #000; font-weight: 600; font-weight: 600; font-weight: 600;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-inline-block d-lg-none icon-width"></span>Menu
+
+                                        </a>
+                                <div class="dropdown-menu shadow-sm sm-menu" aria-labelledby="dropdown01" style="color: #000; font-weight: 600; font-weight: 600;">
+                                    <a class="dropdown-item" href="{% url 'authentication:instructor-profile-update' %}" style="color: #000; font-weight: 600;"> Edit Profile</a>
+                                    <a class="dropdown-item" href="{% url 'core:course' %}" style="color: #000; font-weight: 600;">Courses</a>
+                                    <a class="dropdown-item" href="{% url 'core:course-create' %}" style="color: #000; font-weight: 600;"> Create Course</a>
+                                    <a class="dropdown-item" href="{% url 'core:exam-submission-list' %}" style="color: #000; font-weight: 600;"> Exam Submissions</a>
+                                    <a class="dropdown-item" href="{% url 'core:assignment-submission-list' %}" style="color: #000; font-weight: 600;"> Assignment Submissions</a>
+                                    <a class="dropdown-item" href="{% url 'authentication:logout' %}" style="color: #000; font-weight: 600;"> Logout</a>
+                                </div>
+                            </li>
+
+
+                            {% elif request.user.is_authenticated and request.user.role == 'student' %}
+                            <li class="nav-item px-lg-2 active">
+                                <a style="font-weight:600" class="nav-link" href="/" style="color: #000; font-weight: 600;"> <span class="d-inline-block d-lg-none icon-width"></span>Home</a>
+                            </li>
+                            <li>
+                                <li class="nav-item px-lg-2 dropdown d-menu">
+                                    <a style="color: #000; font-weight: 600;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-inline-block d-lg-none icon-width"></span>Menu
+                                                </a>
+                                    <ul class="dropdown">
+                                        <div class="dropdown-menu shadow-sm sm-menu" aria-labelledby="dropdown01" style="color: #000; font-weight: 600;">
+                                            <a class="dropdown-item" href="{% url 'authentication:student-profile-update' %}" style="color: #000; font-weight: 600;"> Edit Profile</a>
+                                            <a class="dropdown-item" href="{% url 'core:course' %}" style="color: #000; font-weight: 600;">View Courses</a>
+                                            <a class="dropdown-item" href="{% url 'authentication:logout' %}" style="color: #000; font-weight: 600;"> Logout</a>
+
+                                        </div>
+                                </li>
+
+                                {% else %}
+                                <li class="nav-item px-lg-2 active">
+                                    <a style="color: #000; font-weight: 600;" class="nav-link" href="{% url 'authentication:login' %}"></span>Login</a>
+                                </li>
+                                <li class="nav-item px-lg-2 dropdown d-menu">
+                                    <a style="color: #000; font-weight: 600;" class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-inline-block d-lg-none icon-width"></span>Register
+
+                                                        </a>
+                                    <div class="dropdown-menu shadow-sm sm-menu" aria-labelledby="dropdown01" style="color: #000; font-weight: 600;">
+                                        <a class="dropdown-item" href="{% url 'authentication:instructor-register' %}" style="color: #000; font-weight: 600;"> Teacher</a>
+                                        <a class="dropdown-item" href="{% url 'authentication:student-register' %}" style="color: #000; font-weight: 600;"> Student</a>
+                                    </div>
+                                </li>
+                                {% endif %}
+                            </li>
+                </div>
+
+
+
+                <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+                    <li class="nav-thing" class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-facebook text-black" style="color: #000; font-weight: 600;"></i><span class="d-lg-none ml-3">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="nav-thing" class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-twitter text-black" style="color: #000; font-weight: 600;"></i><span class="d-lg-none ml-3">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="nav-thing" class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-instagram text-black" style="color: #000; font-weight: 600;"></i><span class="d-lg-none ml-3">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="nav-thing" class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-linkedin text-black" style="color: #000; font-weight: 600;"></i><span class="d-lg-none ml-3">Linkedin</span>
+                        </a>
+                    </li>
+                    <li class="nav-thing" class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-pinterest text-black" style="color: #000; font-weight: 600;"></i><span class="d-lg-none ml-3">Pinterest</span>
+                        </a>
+                    </li>
+                </ul>
+
+        </div>
+        </div>
+    </nav>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            if ($(window).width() > 991) {
+                $('.navbar-light .d-menu').hover(function() {
+                    $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+                }, function() {
+                    $(this).find('.sm-menu').first().stop(true, true).delay(120).slideUp(100);
+                });
+            }
+        });
+    </script>
+</header>

@@ -1,0 +1,223 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %} {% block content %}
+<style>
+    .welcome-area {
+        min-height: 85vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+        font-family: "Poppins";
+        color: #00082E;
+        background-image: url("https://cdn.dribbble.com/users/2399335/screenshots/14689261/d_glass-morphism_card_1080p_4x.png");
+        background-size: cover;
+        background-position: center top;
+    }
+    
+     :root {
+        --dark-color: hsl(230, 100%, 9%);
+        --light-color: #fff;
+        --bg-gradient: linear-gradient( to bottom, hsl(230, 95%, 99%), hsl(230, 95%, 84%));
+    }
+    
+    strong {
+        font-weight: 700;
+        font-size: small;
+        color: #000;
+    }
+    
+    .overlay {
+        width: min(100%, 1067px);
+        /*   max-height: 640px; */
+        padding: 8rem 6rem;
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.375);
+        box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+    }
+    
+    .overlay__inner {
+        max-width: 50rem;
+    }
+    
+    .overlay__title {
+        font-size: 3rem;
+        line-height: 3.5rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        margin-bottom: 2rem;
+    }
+    
+    .text-gradient {
+        background-image: linear-gradient(45deg, #ff0066, #ff1026);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .overlay__description {
+        font-size: 1rem;
+        line-height: 1.75rem;
+        margin-bottom: 3rem;
+        font-weight: 500;
+    }
+    
+    .overlay__btn {
+        padding: 1rem 3.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        background: #000;
+        border: none;
+        border-radius: 0.5rem;
+        transition: transform 150ms ease;
+    }
+    
+    .overlay__btn:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    
+    @media only screen and (max-width: 1140px) {
+        .overlay {
+            padding: 8rem 4rem;
+        }
+    }
+    
+    @media only screen and (max-width: 840px) {
+        .overlay {
+            padding: 4rem;
+            height: auto;
+        }
+        .welcome-area {
+            min-height: 65vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            font-family: "Poppins";
+            color: #00082E;
+            background-image: url("https://cdn.dribbble.com/users/2399335/screenshots/14689261/d_glass-morphism_card_1080p_4x.png");
+            background-size: cover;
+            background-position: center top;
+        }
+        .overlay__title {
+            font-size: 3rem;
+            line-height: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        .overlay__description {
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .overlay {
+            padding: 1.5rem;
+        }
+        .overlay__btns {
+            /*     flex-wrap: wrap; */
+        }
+        .overlay__btn {
+            width: 100%;
+            /*     font-size: 0.75rem; */
+        }
+    }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swaps">
+
+
+<section class="welcome-area">
+    <div class="overlay">
+        <!-- Overlay inner wrapper -->
+        <div class="overlay__inner">
+            <!-- Title -->
+            <h1 class="overlay__title">
+                Welcome to H.C.E.T's Own Student Management Portal.
+            </h1>
+            <!-- Description -->
+            <p class="overlay__description">
+                <strong>Hey fellow student 👋! Feel free to sign in with your mail address and complete your asignments.</strong>
+            </p>
+            <!-- Buttons -->
+            <div class="overlay__btns">
+
+                <a href="{% url 'authentication:login' %}"><button class="overlay__btn">Login
+            </button></a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="dentist-area section-padding-35-0">
+
+    <div class="container">
+
+
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    </br>
+
+                    <h3 class="lead">Available Courses </h3>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for course in course %}
+            <!-- Single Dentist Area -->
+            <div class="col-12 col-sm-6 col-md-4">
+
+                <div class="single-dentist-area mb-100">
+                    <img style="height: 300px; width: 500px " src="{{ course.course_image.url }}" alt="">
+                    <!-- Dentist Content -->
+                    <div class="dentist-content">
+                        <!-- Social Info -->
+                        <div class="dentist-social-info">
+
+                        </div>
+                        <!-- Dentist Info -->
+                        <div class="dentist-info bg-gradient-overlay">
+                            <h5>{{ course.course_name }} |
+                                <a href="{% url 'core:course-view' course.id %}"> <small>VIEW COURSE</small></a>
+                            </h5>
+                            <p>{{ course.teacher_name }} </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="pagination">
+                <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span> {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a> {% endif %}
+                </span>
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
